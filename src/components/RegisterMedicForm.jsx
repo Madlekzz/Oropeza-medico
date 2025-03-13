@@ -122,14 +122,19 @@ const RegisterMedicForm = () => {
         
         <div className="flex items-center gap-1 flex-col mt-4 w-full">
           <h1 className="w-[60%]">Especialidad</h1>
-          <MultiSelect 
-          w={480}
-          placeholder="Elige profesión"
-          data={['Cardiologo', 'Endocrinología', 'Pediatría', 'Psiquiatría' , 'Dermatología' , 'Urología']}
-          value={Especialidad}
-          onChange={(setEspecialidad)}
-          Clearable
-        />
+          <div className="focus-within:border-2 focus-within:border-[#89c00f] focus-within:rounded-lg"> {/* Borde en focus */}
+            <MultiSelect
+              variant="transparent"
+              color="#89c00f"
+              w={400}
+              size="lg"
+              placeholder="Elige profesión"
+              data={['Cardiologo', 'Endocrinología', 'Pediatría', 'Psiquiatría', 'Dermatología', 'Urología']}
+              value={Especialidad}
+              onChange={setEspecialidad}
+              clearable
+            />
+          </div>
         </div>
 
         <Button color="#89c00f" className="bg-[#89c00f] text-xl text-white font-bold p-3 mb-4 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2">
