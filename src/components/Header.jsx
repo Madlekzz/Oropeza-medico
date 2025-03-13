@@ -2,6 +2,8 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IconSearch } from "@tabler/icons-react";
 import { Image } from "@mantine/core";
+import { Autocomplete } from '@mantine/core';
+import { IconAt } from '@tabler/icons-react';
 
 const Header = () => {
   const [isHoveredId, setIsHoveredId] = useState("");
@@ -60,16 +62,26 @@ const Header = () => {
           >
             Sobre nosotros
           </NavLink>
-          <div className="flex flex-row bg-white rounded-2xl p-2 w-96">
-            <input
-              type="text"
-              placeholder="Especialidad, Especialista o Medico..."
-              className="text-[#89c00f] focus:outline-none overflow-ellipsis w-full"
-            />
-            <button className="flex items-center cursor-pointer text-[#89c00f] ml-2">
-              <IconSearch />
-            </button>
-          </div>
+
+
+
+          <div className="border-white flex flex-row bg-white rounded-2xl p-2 w-96">
+      <Autocomplete
+        placeholder="Especialidad, Especialista o Medico..."
+        data={['Cardiologo', 'Endocrinología', 'Pediatría', 'Psiquiatría', 'Dermatología', 'Urología']}
+        className="custom-autocomplete text-[#89c00f] overflow-ellipsis w-full"
+        styles={{
+          wrapper: {
+            outline: '2px solid white',
+            outlineOffset: '-2px',
+          },
+        }}
+      />
+      <button className="border-white flex items-center cursor-pointer text-[#89c00f] ml-2">
+        <IconSearch />
+      </button>
+    </div>
+
         </div>
         <div className="flex items-center gap-2">
           <nav className="flex gap-4 items-end justify-end">
