@@ -3,7 +3,7 @@ import { Button } from "@mantine/core";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
 
 const RegisterPatientForm = () => {
-  const [birthday, setBirthday] = useState(null);
+  const [birthday, setBirthday] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

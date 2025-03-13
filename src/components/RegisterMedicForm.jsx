@@ -39,7 +39,7 @@ const RegisterMedicForm = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full focus:outline-none"
             />
-            <Button className="cursor-pointer" onClick={toggleVisibility}>
+            <Button onClick={toggleVisibility}>
               {isPasswordVisible === "password" ? (
                 <IconEye size={30} />
               ) : (
@@ -48,7 +48,10 @@ const RegisterMedicForm = () => {
             </Button>
           </div>
         </div>
-        <Button className="bg-[#89c00f] text-xl text-white font-bold p-3 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2">
+        <Button
+          unstyled
+          className="bg-[#89c00f] text-xl text-white font-bold p-3 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2"
+        >
           Iniciar sesión
         </Button>
         <h1 className="mt-6 text-lg">

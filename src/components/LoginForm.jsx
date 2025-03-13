@@ -1,20 +1,33 @@
 import { useState } from "react";
-import { Button } from "@mantine/core";
+import { Button, Checkbox } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
 import "../styles/style.css";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const [isPasswordVisible, setIsPasswordVisible] = useState("password");
+  const [checkbox, setCheckbox] = useState(null);
 
   const toggleVisibility = () => {
-    if (isPasswordVisible === "password") {
-      setIsPasswordVisible("text");
-    } else {
-      setIsPasswordVisible("password");
-    }
+    setIsPasswordVisible((prev) => (prev === "password" ? "text" : "password"));
+  };
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    updateCheckboxState(newEmail, password);
+  };
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    updateCheckboxState(email, newPassword);
+  };
+
+  const updateCheckboxState = (email, password) => {
+    setCheckbox(email.trim() !== "" || password.trim() !== "");
   };
   return (
     <div className="rounded-lg p-4 h-screen flex items-center justify-center">
@@ -27,7 +40,7 @@ const LoginForm = () => {
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmailChange}
             className="border-2 border-gray-300 rounded-lg w-[60%] h-12 hover:border-[#89c00f] focus:border-[3.5px] focus:outline-none focus:border-[#89c00f] p-2"
           />
         </div>
@@ -37,23 +50,38 @@ const LoginForm = () => {
             <input
               type={isPasswordVisible}
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePasswordChange}
               className="w-full focus:outline-none"
             />
-            <button className="cursor-pointer" onClick={toggleVisibility}>
+            <Button
+              variant="transparent"
+              color="#89c00f"
+              onClick={toggleVisibility}
+            >
               {isPasswordVisible === "password" ? (
                 <IconEye size={30} />
               ) : (
                 <IconEyeOff size={30} />
               )}
-            </button>
+            </Button>
           </div>
         </div>
         <div className="flex w-full items-center justify-center gap-2">
-          <input type="checkbox" className="w-5 h-5" />
-          <span className="text-lg">Recordar contraseña</span>
+          {checkbox ? (
+            <Checkbox defaultChecked label="Recordar contraseña" color="lime" />
+          ) : (
+            <Checkbox
+              defaultChecked
+              label="Recordar contraseña"
+              color="lime"
+              disabled
+            />
+          )}
         </div>
-        <Button className="bg-[#89c00f] text-xl text-white font-bold p-3 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2">
+        <Button
+          unstyled
+          className="bg-[#89c00f] text-xl text-white font-bold p-3 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2"
+        >
           Iniciar sesión
         </Button>
         <h1 className="mt-6 text-lg">
