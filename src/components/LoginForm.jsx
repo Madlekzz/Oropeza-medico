@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
+import "../styles/style.css";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -17,8 +18,8 @@ const LoginForm = () => {
   };
   return (
     <div className="rounded-lg p-4 h-screen flex items-center justify-center">
-      <form className="flex flex-col bg-white w-[40%] h-[75%] items-center gap-3 rounded-xl shadow-2xl">
-        <h1 className="text-3xl text-center font-bold uppercase mt-12">
+      <form className="flex flex-col bg-white w-[40%] h-[75%] items-center justify-center gap-3 rounded-xl shadow-2xl">
+        <h1 className="text-3xl text-center font-bold uppercase">
           Iniciar sesión
         </h1>
         <div className="flex items-center gap-1 flex-col mt-8 w-full">
@@ -47,6 +48,10 @@ const LoginForm = () => {
               )}
             </Button>
           </div>
+        </div>
+        <div className="flex w-full items-center justify-center gap-2">
+          <input type="checkbox" className="w-5 h-5" />
+          <span className="text-lg">Recordar contraseña</span>
         </div>
         <Button className="bg-[#89c00f] text-xl text-white font-bold p-3 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2">
           Iniciar sesión

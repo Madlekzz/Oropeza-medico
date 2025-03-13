@@ -7,13 +7,24 @@ const RegisterPatientForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState("password");
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState("password");
 
-  const toggleVisibility = () => {
+  const togglePasswordVisibility = () => {
     if (isPasswordVisible === "password") {
       setIsPasswordVisible("text");
     } else {
       setIsPasswordVisible("password");
+    }
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    if (isConfirmPasswordVisible === "password") {
+      setIsConfirmPasswordVisible("text");
+    } else {
+      setIsConfirmPasswordVisible("password");
     }
   };
   return (
@@ -67,8 +78,30 @@ const RegisterPatientForm = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full focus:outline-none"
             />
-            <Button className="cursor-pointer" onClick={toggleVisibility}>
+            <Button
+              className="cursor-pointer"
+              onClick={togglePasswordVisibility}
+            >
               {isPasswordVisible === "password" ? (
+                <IconEye size={30} />
+              ) : (
+                <IconEyeOff size={30} />
+              )}
+            </Button>
+          </div>
+          <h1 className="w-[60%]">Confirmar Contraseña</h1>
+          <div className="w-[60%] flex flex-row items-center border-2 border-gray-300 rounded-lg h-12 hover:border-[#89c00f] focus:border-[3.5px] focus:outline-none focus:border-[#89c00f] p-2">
+            <input
+              type={isConfirmPasswordVisible}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="w-full focus:outline-none"
+            />
+            <Button
+              className="cursor-pointer"
+              onClick={toggleConfirmPasswordVisibility}
+            >
+              {isConfirmPasswordVisible === "password" ? (
                 <IconEye size={30} />
               ) : (
                 <IconEyeOff size={30} />

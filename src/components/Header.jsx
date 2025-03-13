@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IconSearch } from "@tabler/icons-react";
-import { Button } from "@mantine/core";
+import { Image } from "@mantine/core";
 
 const Header = () => {
   const [isHoveredId, setIsHoveredId] = useState("");
@@ -23,25 +23,37 @@ const Header = () => {
 
   return (
     <header className="bg-[#89c00f] text-white p-5 text-xl">
-      <div className="flex justify-between items-end container mx-auto">
-        <div className="p-2">
-          <NavLink to="/" className="text-white uppercase font-bold text-2xl">
-            MediDev
+      <div className="flex justify-between items-start">
+        <div>
+          <NavLink
+            to="/"
+            className="text-white uppercase font-bold text-2xl ml-0"
+          >
+            <Image src="/src/assets/LOGO BLANCO.png" className="w-80 h-12" />
           </NavLink>
         </div>
         <div className="flex flex-row">
-          <Button
-            onClick={() => scrollToPosition(1400)}
-            className="text-white font-bold text-2xl p-2 mr-8 cursor-pointer"
+          <NavLink
+            to="/"
+            onClick={() => scrollToPosition(1600)}
+            className="text-white font-bold text-2xl p-2 mr-8 cursor-pointer rounded-lg hover:bg-white hover:text-[#466500]  transition-colors duration-300"
           >
             Seguridad
-          </Button>
-          <Button
+          </NavLink>
+          <NavLink
+            to="/"
             onClick={() => scrollToPosition(800)}
-            className="text-white font-bold text-2xl p-2 mr-8 cursor-pointer"
+            className="text-white font-bold text-2xl p-2 mr-8 cursor-pointer rounded-lg hover:bg-white hover:text-[#466500]  transition-colors duration-300"
           >
             Contenido
-          </Button>
+          </NavLink>
+          <NavLink
+            to="/"
+            onClick={() => scrollToPosition(3000)}
+            className="text-white font-bold text-2xl p-2 mr-8 cursor-pointer rounded-lg hover:bg-white hover:text-[#466500]  transition-colors duration-300"
+          >
+            Sobre nosotros
+          </NavLink>
           <div className="flex flex-row bg-white rounded-2xl p-2 w-96">
             <input
               type="text"

@@ -1,3 +1,7 @@
 .swiper-pagination-bullet-active {
   background-color: #89c00f !important; /* Active bullet color */
 }
+
+input[type="checkbox"] {
+  accent-color: #89c00f;
+}

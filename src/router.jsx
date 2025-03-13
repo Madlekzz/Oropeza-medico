@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { MantineProvider } from "@mantine/core";
+import "@mantine/core/styles.css";
 
 export default function AppRouter() {
   return (
