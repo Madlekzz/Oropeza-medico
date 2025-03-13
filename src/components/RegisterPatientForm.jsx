@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Button } from "@mantine/core";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
-import { MultiSelect } from '@mantine/core';
-import { Input, InputBase, Combobox, useCombobox } from '@mantine/core';
 
 const RegisterPatientForm = () => {
-  const [Sexo, setSexo] = useState('');
+  const [Sexo, setSexo] = useState("");
   const [birthday, setBirthday] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -55,7 +53,6 @@ const RegisterPatientForm = () => {
           />
         </div>
 
-
         <div className="flex items-center gap-1 flex-col w-full">
           <h1 className="w-[60%]">Sexo</h1>
           <select
@@ -67,7 +64,6 @@ const RegisterPatientForm = () => {
             <option value="Mujer">👩 Femenino</option>
           </select>
         </div>
-
 
         <div className="flex items-center gap-1 flex-col w-full">
           <h1 className="w-[60%]">Correo Electrónico</h1>
@@ -88,7 +84,9 @@ const RegisterPatientForm = () => {
               className="w-full focus:outline-none"
             />
             <Button
-             variant="transparent" color="#89c00f" className="cursor-pointer"
+              variant="transparent"
+              color="#89c00f"
+              className="cursor-pointer"
               onClick={togglePasswordVisibility}
             >
               {isPasswordVisible === "password" ? (
@@ -107,7 +105,9 @@ const RegisterPatientForm = () => {
               className="w-full focus:outline-none"
             />
             <Button
-             variant="transparent" color="#89c00f" className="cursor-pointer"
+              variant="transparent"
+              color="#89c00f"
+              className="cursor-pointer"
               onClick={toggleConfirmPasswordVisibility}
             >
               {isConfirmPasswordVisible === "password" ? (
@@ -119,13 +119,14 @@ const RegisterPatientForm = () => {
           </div>
         </div>
 
-        <Button color="#89c00f" className="bg-[#89c00f] text-xl text-white font-bold p-3 mb-4 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2">
+        <Button
+          color="#89c00f"
+          className="bg-[#89c00f] text-xl text-white font-bold p-3 mb-4 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2"
+        >
           Registrarse
         </Button>
-        
       </form>
     </div>
   );
 };
 export default RegisterPatientForm;
-
