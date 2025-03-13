@@ -1,5 +1,4 @@
 import { IconStethoscope, IconUserPlus } from "@tabler/icons-react";
-import { Button } from "@mantine/core";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
@@ -18,24 +17,24 @@ const UserType = ({ onTypeSelect }) => {
           <h1 className="text-3xl font-bold">¿Cómo deseas usar MediDev?</h1>
           <div className="flex flex-row items-center justify-between gap-12 mt-18">
             <div className="flex flex-col items-center justify-center">
-              <Button
+              <button
                 onClick={() => selectedUserType("Medico")}
                 className="border-4 border-[#89c00f] rounded-full p-3 hover:shadow-lg cursor-pointer"
               >
                 <IconStethoscope size={100} />
-              </Button>
+              </button>
               <h1 className="text-2xl mt-3 font-bold">
                 Profesional de la Salud
               </h1>
             </div>
 
             <div className="flex flex-col items-center justify-center">
-              <Button
+              <button
                 onClick={() => selectedUserType("Paciente")}
                 className="border-4 border-[#89c00f] rounded-full p-3 hover:shadow-lg cursor-pointer"
               >
                 <IconUserPlus size={100} />
-              </Button>
+              </button>
               <h1 className="text-2xl mt-3 font-bold">Paciente</h1>
             </div>
           </div>
