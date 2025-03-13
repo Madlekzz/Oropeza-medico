@@ -6,6 +6,8 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
+import AlgoPage from "./pages/AlgoPage";
+import { ProtectedLayout } from "./layouts/protectedLayout";
 
 export default function AppRouter() {
   return (
@@ -30,6 +32,9 @@ export default function AppRouter() {
                 </Suspense>
               }
             />
+          </Route>
+          <Route element={<ProtectedLayout />}>
+            <Route path="/algo" element={<AlgoPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
