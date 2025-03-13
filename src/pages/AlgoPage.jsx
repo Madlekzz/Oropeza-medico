@@ -1,5 +1,5 @@
 const AlgoPage = () => {
-  return <div></div>;
+  return <div className="text-9xl">MUCHAS GRACIAS ARIANNA VERGA</div>;
 };
 
 export default AlgoPage;

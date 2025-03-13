@@ -11,6 +11,7 @@ import {
   IconSwitchHorizontal,
 } from "@tabler/icons-react";
 import { Code, Group } from "@mantine/core";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import styles from "./NavbarSimpleColored.module.css"; // ✅ Correct Import
 
 export default function NavbarSimpleColored() {
@@ -20,31 +21,37 @@ export default function NavbarSimpleColored() {
     {
       label: "Notifications",
       icon: <IconBellRinging className={styles.linkIcon} stroke={1.5} />,
-      link: "/algo",
+      link: "/notifications",
     },
     {
       label: "Billing",
       icon: <IconReceipt2 className={styles.linkIcon} stroke={1.5} />,
+      link: "/billing",
     },
     {
       label: "Security",
       icon: <IconFingerprint className={styles.linkIcon} stroke={1.5} />,
+      link: "/security",
     },
     {
       label: "SSH Keys",
       icon: <IconKey className={styles.linkIcon} stroke={1.5} />,
+      link: "/ssh-keys",
     },
     {
       label: "Databases",
       icon: <IconDatabaseImport className={styles.linkIcon} stroke={1.5} />,
+      link: "/databases",
     },
     {
       label: "Authentication",
       icon: <Icon2fa className={styles.linkIcon} stroke={1.5} />,
+      link: "/authentication",
     },
     {
       label: "Other Settings",
       icon: <IconSettings className={styles.linkIcon} stroke={1.5} />,
+      link: "/other-settings",
     },
   ];
 
@@ -59,31 +66,42 @@ export default function NavbarSimpleColored() {
         </Group>
 
         {/* Navigation Links */}
-        {menuItems.map(({ label, icon }) => (
-          <button
+        {menuItems.map(({ label, icon, link }) => (
+          <Link
             key={label}
+            to={link} // Use the 'to' prop instead of 'href'
             className={`${styles.link} ${
               active === label ? styles.active : ""
             }`}
-            onClick={() => setActive(label)}
+            onClick={() => {
+              setActive(label); // Set the active state
+            }}
           >
             {icon}
             <span>{label}</span>
-          </button>
+          </Link>
         ))}
       </div>
 
       {/* Footer */}
       <div className={styles.footer}>
-        <button className={styles.link} onClick={(e) => e.preventDefault()}>
+        <a
+          href="#"
+          className={styles.link}
+          onClick={(event) => event.preventDefault()}
+        >
           <IconSwitchHorizontal className={styles.linkIcon} stroke={1.5} />
           <span>Change account</span>
-        </button>
+        </a>
 
-        <button className={styles.link} onClick={(e) => e.preventDefault()}>
+        <a
+          href="#"
+          className={styles.link}
+          onClick={(event) => event.preventDefault()}
+        >
           <IconLogout className={styles.linkIcon} stroke={1.5} />
           <span>Logout</span>
-        </button>
+        </a>
       </div>
     </nav>
   );
