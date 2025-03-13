@@ -40,13 +40,13 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full focus:outline-none"
             />
-            <Button className="cursor-pointer" onClick={toggleVisibility}>
+            <button className="cursor-pointer" onClick={toggleVisibility}>
               {isPasswordVisible === "password" ? (
                 <IconEye size={30} />
               ) : (
                 <IconEyeOff size={30} />
               )}
-            </Button>
+            </button>
           </div>
         </div>
         <div className="flex w-full items-center justify-center gap-2">
