@@ -39,6 +39,7 @@ const LoginForm = () => {
           <h1 className="w-[60%]">Correo Electrónico</h1>
           <input
             type="email"
+            required
             value={email}
             onChange={handleEmailChange}
             className="border-2 border-gray-300 rounded-lg w-[60%] h-12 hover:border-[#89c00f] focus:border-[3.5px] focus:outline-none focus:border-[#89c00f] p-2"

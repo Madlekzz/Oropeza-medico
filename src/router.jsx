@@ -6,6 +6,8 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
+import { ProtectedLayout } from "./layouts/protectedLayout";
+import DashboardPage from "./pages/DashboardPage";
 
 export default function AppRouter() {
   return (
@@ -30,6 +32,9 @@ export default function AppRouter() {
                 </Suspense>
               }
             />
+          </Route>
+          <Route element={<ProtectedLayout />}>
+            <Route path="/dashboard" element={<DashboardPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Button } from "@mantine/core";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
-import { MultiSelect } from '@mantine/core';
-import { Input, InputBase, Combobox, useCombobox } from '@mantine/core';
+import { MultiSelect } from "@mantine/core";
 
 const RegisterMedicForm = () => {
   const [Especialidad, setEspecialidad] = useState([]);
-  const [Sexo, setSexo] = useState('');
+  const [Sexo, setSexo] = useState("");
   const [birthday, setBirthday] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -56,7 +55,6 @@ const RegisterMedicForm = () => {
           />
         </div>
 
-
         <div className="flex items-center gap-1 flex-col w-full">
           <h1 className="w-[60%]">Sexo</h1>
           <select
@@ -68,7 +66,6 @@ const RegisterMedicForm = () => {
             <option value="Mujer">👩 Femenino</option>
           </select>
         </div>
-
 
         <div className="flex items-center gap-1 flex-col w-full">
           <h1 className="w-[60%]">Correo Electrónico</h1>
@@ -89,7 +86,9 @@ const RegisterMedicForm = () => {
               className="w-full focus:outline-none"
             />
             <Button
-             variant="transparent" color="#89c00f" className="cursor-pointer"
+              variant="transparent"
+              color="#89c00f"
+              className="cursor-pointer"
               onClick={togglePasswordVisibility}
             >
               {isPasswordVisible === "password" ? (
@@ -108,7 +107,9 @@ const RegisterMedicForm = () => {
               className="w-full focus:outline-none"
             />
             <Button
-             variant="transparent" color="#89c00f" className="cursor-pointer"
+              variant="transparent"
+              color="#89c00f"
+              className="cursor-pointer"
               onClick={toggleConfirmPasswordVisibility}
             >
               {isConfirmPasswordVisible === "password" ? (
@@ -119,17 +120,26 @@ const RegisterMedicForm = () => {
             </Button>
           </div>
         </div>
-        
+
         <div className="flex items-center gap-1 flex-col mt-4 w-full">
           <h1 className="w-[60%]">Especialidad</h1>
-          <div className="focus-within:border-2 focus-within:border-[#89c00f] focus-within:rounded-lg"> {/* Borde en focus */}
+          <div className="focus-within:border-2 focus-within:border-[#89c00f] focus-within:rounded-lg">
+            {" "}
+            {/* Borde en focus */}
             <MultiSelect
               variant="transparent"
               color="#89c00f"
               w={400}
               size="lg"
               placeholder="Elige profesión"
-              data={['Cardiologo', 'Endocrinología', 'Pediatría', 'Psiquiatría', 'Dermatología', 'Urología']}
+              data={[
+                "Cardiologo",
+                "Endocrinología",
+                "Pediatría",
+                "Psiquiatría",
+                "Dermatología",
+                "Urología",
+              ]}
               value={Especialidad}
               onChange={setEspecialidad}
               clearable
@@ -137,13 +147,14 @@ const RegisterMedicForm = () => {
           </div>
         </div>
 
-        <Button color="#89c00f" className="bg-[#89c00f] text-xl text-white font-bold p-3 mb-4 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2">
+        <Button
+          color="#89c00f"
+          className="bg-[#89c00f] text-xl text-white font-bold p-3 mb-4 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2"
+        >
           Registrarse
         </Button>
-        
       </form>
     </div>
   );
 };
 export default RegisterMedicForm;
-
