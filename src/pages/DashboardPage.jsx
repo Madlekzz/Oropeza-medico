@@ -1,7 +1,9 @@
+import TestSupabase from "../components/TestSupabase";
 const DashboardPage = () => {
   return (
     <div>
-      <h1>Dashboard page</h1>
+      <h1>Supabase test</h1>
+      <TestSupabase />
     </div>
   );
 };

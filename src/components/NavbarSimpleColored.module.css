@@ -4,7 +4,9 @@
   padding: var(--mantine-spacing-md);
   display: flex;
   flex-direction: column;
-  background-color: var(--mantine-color-blue-filled);
+  background-color: #89c00f;
+  text-align: center;
+  justify-content: center;
 }
 
 .navbarMain {
@@ -14,17 +16,19 @@
 .header {
   padding-bottom: var(--mantine-spacing-md);
   margin-bottom: calc(var(--mantine-spacing-md) * 1.5);
-  border-bottom: 1px solid var(--mantine-color-blue-7);
+  border-bottom: 1px solid white;
+  display: flex;
+  text-align: center;
 }
 
 .footer {
   padding-top: var(--mantine-spacing-md);
   margin-top: var(--mantine-spacing-md);
-  border-top: 1px solid var(--mantine-color-blue-7);
+  border-top: 1px solid white;
 }
 
 .version {
-  background-color: var(--mantine-color-blue-7);
+  background-color: transparent;
   color: var(--mantine-color-white);
 }
 
@@ -32,18 +36,18 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: var(--mantine-font-size-sm);
+  font-size: var(--mantine-font-size-xl);
   color: var(--mantine-color-white);
   padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
   border-radius: var(--mantine-radius-sm);
   font-weight: 500;
 
   @mixin hover {
-    background-color: var(--mantine-color-blue-7);
-    color: var(--mantine-color-white);
+    background-color: white;
+    color: #466500;
 
     .linkIcon {
-      color: var(--mantine-color-white);
+      color: #466500;
     }
   }
 

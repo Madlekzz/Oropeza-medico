@@ -1,14 +1,14 @@
 import { useState } from "react";
 import {
   Icon2fa,
-  IconBellRinging,
+  IconCalendarTime,
   IconDatabaseImport,
   IconFingerprint,
   IconKey,
   IconLogout,
-  IconReceipt2,
   IconSettings,
   IconSwitchHorizontal,
+  IconUserHeart,
 } from "@tabler/icons-react";
 import { Code, Group } from "@mantine/core";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
@@ -19,39 +19,19 @@ export default function NavbarSimpleColored() {
 
   const menuItems = [
     {
-      label: "Notifications",
-      icon: <IconBellRinging className={styles.linkIcon} stroke={1.5} />,
-      link: "/notifications",
+      label: "Pacientes",
+      icon: <IconUserHeart className={styles.linkIcon} stroke={1.5} />,
+      link: "/pacientes",
     },
     {
-      label: "Billing",
-      icon: <IconReceipt2 className={styles.linkIcon} stroke={1.5} />,
-      link: "/billing",
+      label: "Consultas",
+      icon: <IconCalendarTime className={styles.linkIcon} stroke={1.5} />,
+      link: "/consultas",
     },
     {
-      label: "Security",
-      icon: <IconFingerprint className={styles.linkIcon} stroke={1.5} />,
-      link: "/security",
-    },
-    {
-      label: "SSH Keys",
-      icon: <IconKey className={styles.linkIcon} stroke={1.5} />,
-      link: "/ssh-keys",
-    },
-    {
-      label: "Databases",
-      icon: <IconDatabaseImport className={styles.linkIcon} stroke={1.5} />,
-      link: "/databases",
-    },
-    {
-      label: "Authentication",
-      icon: <Icon2fa className={styles.linkIcon} stroke={1.5} />,
-      link: "/authentication",
-    },
-    {
-      label: "Other Settings",
+      label: "Configuración",
       icon: <IconSettings className={styles.linkIcon} stroke={1.5} />,
-      link: "/other-settings",
+      link: "/configuración",
     },
   ];
 
@@ -60,9 +40,8 @@ export default function NavbarSimpleColored() {
       {/* Header */}
       <div className={styles.navbarMain}>
         <Group className={styles.header} justify="space-between">
-          <Code fw={700} className={styles.version}>
-            v3.1.2
-          </Code>
+          <h1 className="text-center text-white text-2xl">Medidev</h1>
+          <Code fw={700} className={styles.version}></Code>
         </Group>
 
         {/* Navigation Links */}
