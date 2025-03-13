@@ -1,27 +1,76 @@
 import { useState } from "react";
 import { Button } from "@mantine/core";
-import { NavLink } from "react-router-dom";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
+import { MultiSelect } from '@mantine/core';
+import { Input, InputBase, Combobox, useCombobox } from '@mantine/core';
 
 const RegisterMedicForm = () => {
+  const [Especialidad, setEspecialidad] = useState([]);
+  const [Sexo, setSexo] = useState('');
+  const [birthday, setBirthday] = useState(null);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState("password");
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState("password");
 
-  const toggleVisibility = () => {
+  const togglePasswordVisibility = () => {
     if (isPasswordVisible === "password") {
       setIsPasswordVisible("text");
     } else {
       setIsPasswordVisible("password");
     }
   };
+
+  const toggleConfirmPasswordVisibility = () => {
+    if (isConfirmPasswordVisible === "password") {
+      setIsConfirmPasswordVisible("text");
+    } else {
+      setIsConfirmPasswordVisible("password");
+    }
+  };
   return (
     <div className="rounded-lg p-4 h-screen flex items-center justify-center">
-      <form className="flex flex-col bg-white w-[40%] h-[75%] items-center gap-3 rounded-xl shadow-2xl">
+      <form className="flex flex-col bg-white w-[40%] h-fit items-center gap-3 rounded-xl shadow-2xl">
         <h1 className="text-3xl text-center font-bold uppercase mt-12">
           Registro de medico
         </h1>
-        <div className="flex items-center gap-1 flex-col mt-8 w-full">
+        <div className="flex items-center gap-1 flex-col mt-4 w-full">
+          <h1 className="w-[60%]">Nombre</h1>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="border-2 border-gray-300 rounded-lg w-[60%] h-12 hover:border-[#89c00f] focus:border-[3.5px] focus:outline-none focus:border-[#89c00f] p-2"
+          />
+        </div>
+        <div className="flex items-center gap-1 flex-col w-full">
+          <h1 className="w-[60%]">Fecha de nacimiento</h1>
+          <input
+            type="date"
+            value={birthday}
+            onChange={(e) => setBirthday(e.target.value)}
+            className="border-2 border-gray-300 rounded-lg w-[60%] h-12 hover:border-[#89c00f] focus:border-[3.5px] focus:outline-none focus:border-[#89c00f] p-2"
+          />
+        </div>
+
+
+        <div className="flex items-center gap-1 flex-col w-full">
+          <h1 className="w-[60%]">Sexo</h1>
+          <select
+            value={Sexo}
+            onChange={(e) => setSexo(e.target.value)}
+            className="border-2 border-gray-300 rounded-lg w-[60%] h-12 hover:border-[#89c00f] focus:border-[3.5px] focus:outline-none focus:border-[#89c00f] p-2"
+          >
+            <option value="Hombre">👨 Masculino</option>
+            <option value="Mujer">👩 Femenino</option>
+          </select>
+        </div>
+
+
+        <div className="flex items-center gap-1 flex-col w-full">
           <h1 className="w-[60%]">Correo Electrónico</h1>
           <input
             type="email"
@@ -39,7 +88,10 @@ const RegisterMedicForm = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full focus:outline-none"
             />
-            <Button onClick={toggleVisibility}>
+            <Button
+             variant="transparent" color="#89c00f" className="cursor-pointer"
+              onClick={togglePasswordVisibility}
+            >
               {isPasswordVisible === "password" ? (
                 <IconEye size={30} />
               ) : (
@@ -47,21 +99,46 @@ const RegisterMedicForm = () => {
               )}
             </Button>
           </div>
+          <h1 className="w-[60%]">Confirmar Contraseña</h1>
+          <div className="w-[60%] flex flex-row items-center border-2 border-gray-300 rounded-lg h-12 hover:border-[#89c00f] focus:border-[3.5px] focus:outline-none focus:border-[#89c00f] p-2">
+            <input
+              type={isConfirmPasswordVisible}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="w-full focus:outline-none"
+            />
+            <Button
+             variant="transparent" color="#89c00f" className="cursor-pointer"
+              onClick={toggleConfirmPasswordVisibility}
+            >
+              {isConfirmPasswordVisible === "password" ? (
+                <IconEye size={30} />
+              ) : (
+                <IconEyeOff size={30} />
+              )}
+            </Button>
+          </div>
         </div>
-        <Button
-          unstyled
-          className="bg-[#89c00f] text-xl text-white font-bold p-3 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2"
-        >
-          Iniciar sesión
+        
+        <div className="flex items-center gap-1 flex-col mt-4 w-full">
+          <h1 className="w-[60%]">Especialidad</h1>
+          <MultiSelect 
+          w={480}
+          placeholder="Elige profesión"
+          data={['Cardiologo', 'Endocrinología', 'Pediatría', 'Psiquiatría' , 'Dermatología' , 'Urología']}
+          value={Especialidad}
+          onChange={(setEspecialidad)}
+          Clearable
+        />
+        </div>
+
+        <Button color="#89c00f" className="bg-[#89c00f] text-xl text-white font-bold p-3 mb-4 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2">
+          Registrarse
         </Button>
-        <h1 className="mt-6 text-lg">
-          ¿No tienes una cuenta?{" "}
-          <NavLink to="/register" className="hover:underline text-[#89c00f]">
-            Registrate aquí
-          </NavLink>
-        </h1>
+        
       </form>
     </div>
   );
 };
 export default RegisterMedicForm;
+

@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Button } from "@mantine/core";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
+import { MultiSelect } from '@mantine/core';
+import { Input, InputBase, Combobox, useCombobox } from '@mantine/core';
 
 const RegisterPatientForm = () => {
-  const [birthday, setBirthday] = useState("");
+  const [Sexo, setSexo] = useState('');
+  const [birthday, setBirthday] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,15 +54,21 @@ const RegisterPatientForm = () => {
             className="border-2 border-gray-300 rounded-lg w-[60%] h-12 hover:border-[#89c00f] focus:border-[3.5px] focus:outline-none focus:border-[#89c00f] p-2"
           />
         </div>
+
+
         <div className="flex items-center gap-1 flex-col w-full">
           <h1 className="w-[60%]">Sexo</h1>
-          <input
-            type="date"
-            value={birthday}
-            onChange={(e) => setBirthday(e.target.value)}
+          <select
+            value={Sexo}
+            onChange={(e) => setSexo(e.target.value)}
             className="border-2 border-gray-300 rounded-lg w-[60%] h-12 hover:border-[#89c00f] focus:border-[3.5px] focus:outline-none focus:border-[#89c00f] p-2"
-          />
+          >
+            <option value="Hombre">👨 Masculino</option>
+            <option value="Mujer">👩 Femenino</option>
+          </select>
         </div>
+
+
         <div className="flex items-center gap-1 flex-col w-full">
           <h1 className="w-[60%]">Correo Electrónico</h1>
           <input
@@ -79,7 +88,7 @@ const RegisterPatientForm = () => {
               className="w-full focus:outline-none"
             />
             <Button
-              className="cursor-pointer"
+             variant="transparent" color="#89c00f" className="cursor-pointer"
               onClick={togglePasswordVisibility}
             >
               {isPasswordVisible === "password" ? (
@@ -98,7 +107,7 @@ const RegisterPatientForm = () => {
               className="w-full focus:outline-none"
             />
             <Button
-              className="cursor-pointer"
+             variant="transparent" color="#89c00f" className="cursor-pointer"
               onClick={toggleConfirmPasswordVisibility}
             >
               {isConfirmPasswordVisible === "password" ? (
@@ -109,11 +118,14 @@ const RegisterPatientForm = () => {
             </Button>
           </div>
         </div>
-        <Button className="bg-[#89c00f] text-xl text-white font-bold p-3 mb-4 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2">
+
+        <Button color="#89c00f" className="bg-[#89c00f] text-xl text-white font-bold p-3 mb-4 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2">
           Registrarse
         </Button>
+        
       </form>
     </div>
   );
 };
 export default RegisterPatientForm;
+

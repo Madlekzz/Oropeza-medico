@@ -51,42 +51,30 @@ const IndexPage = () => {
           <h1 className="text-teal-400 font-bold text-3xl text-center">
             ¿Quienes Somos?
           </h1>
-          <p className="max-w-96 font-bold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta alias
-            aliquid maiores fugiat illo ab, eveniet nostrum eaque voluptatibus
-            sit, error quia quasi maxime eos quod accusamus blanditiis delectus
-            officiis. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Commodi quidem illo soluta earum quisquam similique necessitatibus
-            blanditiis, perspiciatis neque! Hic aliquid tempore dicta magni
-            suscipit doloremque alias, at sunt id.
+          <p className= "text-justify max-w-96 font-bold">
+          En Medidev, somos un equipo apasionado y comprometido con la innovación en el sector médico. Fundada con la misión de mejorar la calidad de vida de las personas, nuestra empresa se especializa en el desarrollo de soluciones médicas avanzadas que integran tecnología y atención personalizada. <br /><br />
+
+          Con un enfoque centrado en el paciente, trabajamos para ofrecer productos y servicios que no solo satisfacen las necesidades del sector salud, sino que también promueven el bienestar y la prevención. Nuestro equipo multidisciplinario de profesionales incluye médicos, ingenieros y expertos en tecnología, quienes colaboran para crear soluciones efectivas y accesibles.
           </p>
         </div>
         <div className="border-r-2 border-l-2 border-[#89c00f] px-20">
           <h1 className="text-teal-400 font-bold text-3xl text-center">
             Visión
           </h1>
-          <p className="max-w-96 font-bold">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae
-            consequuntur dolore nisi commodi aliquam accusamus sapiente, ducimus
-            ab perspiciatis iusto itaque eos autem. Placeat, consequatur itaque
-            expedita dolore voluptate unde? Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Tenetur natus vel dicta minima
-            assumenda, alias pariatur earum adipisci eum harum nihil provident
-            quis, deleniti quaerat rem. Ratione aspernatur dolor nisi.
+          <p className="text-justify max-w-96 font-bold">
+          En Medidev, aspiramos a ser la empresa líder en innovación médica a nivel global, reconocida por transformar el cuidado de la salud a través de soluciones tecnológicas accesibles y efectivas. Nuestra visión es crear un futuro en el que cada persona tenga acceso a herramientas y recursos que promuevan su bienestar, mejoren su calidad de vida y faciliten un diagnóstico y tratamiento más preciso.
+          <br /><br />
+Nos comprometemos a ser pioneros en el desarrollo de tecnologías que no solo respondan a las necesidades actuales del sector salud, sino que también anticipen y se adapten a los desafíos del mañana. A través de la colaboración, la ética y el respeto por la vida humana, buscamos inspirar un cambio positivo en la atención médica, donde la innovación y la compasión vayan de la mano.
           </p>
         </div>
         <div className="mr-12">
           <h1 className="text-teal-400 font-bold text-3xl text-center">
             Misión
           </h1>
-          <p className="max-w-96 font-bold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iusto
-            neque quia corporis eos labore voluptas. Consectetur incidunt eaque
-            neque. Fugit molestias ipsam non nam repellat blanditiis fuga
-            praesentium quae? Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Possimus ipsum eaque facere repellendus aspernatur nostrum
-            ipsam architecto velit accusantium. Maxime culpa blanditiis fugit
-            sequi officia qui fuga ut dicta consequuntur.
+          <p className="text-justify max-w-96 font-bold">
+          En Medidev, nuestra misión es desarrollar soluciones médicas innovadoras que mejoren la calidad de vida de las personas. Nos dedicamos a crear productos y servicios accesibles que integren tecnología avanzada y atención centrada en el paciente. A través de la investigación, la colaboración y un compromiso inquebrantable con la ética, trabajamos para hacer que la atención médica sea más efectiva, segura y humana.
+          <br /><br />
+          Nos esforzamos por ser un referente en el sector salud, impulsando la innovación y promoviendo un enfoque proactivo hacia el bienestar. Nuestro objetivo es empoderar a los profesionales de la salud y a los pacientes con herramientas que faciliten diagnósticos precisos y tratamientos adecuados, contribuyendo así a un sistema de salud más eficiente.
           </p>
         </div>
       </div>
