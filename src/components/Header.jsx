@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IconSearch } from "@tabler/icons-react";
 import { Image } from "@mantine/core";
 
 const Header = () => {
   const [isHoveredId, setIsHoveredId] = useState("");
+  const navigate = useNavigate();
+
+  const handleRegisterClick = () => {
+    // Navigate to the RegisterPage and pass a unique value in the state
+    navigate("/register", { state: { triggerReset: Date.now() } });
+  };
 
   const scrollToPosition = (top) => {
     window.scrollTo({
@@ -84,7 +90,7 @@ const Header = () => {
               </NavLink>
             </div>
             <div
-              className={`border-2 rounded-lg p-2 ${
+              className={`border-2 font-bold rounded-lg p-2 ${
                 isHoveredId === "registro"
                   ? "bg-transparent shadow-lg"
                   : "bg-white text-[#89c00f]"
@@ -92,14 +98,14 @@ const Header = () => {
               onMouseOver={() => handleMouseOver("registro")}
               onMouseLeave={() => handleMouseLeave(null)}
             >
-              <NavLink
-                to="/register"
-                className={`font-bold transition duration-200 ${
+              <button
+                className={`font-bold cursor-pointer transition duration-200 ${
                   isHoveredId === "registro" && "text-white"
                 }`}
+                onClick={handleRegisterClick}
               >
                 Registrarse
-              </NavLink>
+              </button>
             </div>
           </nav>
         </div>
