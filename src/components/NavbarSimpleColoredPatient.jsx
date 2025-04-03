@@ -3,21 +3,21 @@ import {
   IconCalendarTime,
   IconLogout,
   IconSettings,
-  IconUserHeart,
+  IconStethoscope,
 } from "@tabler/icons-react";
 import { Code, Group, Image } from "@mantine/core";
-import { Link, Route } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import styles from "./NavbarSimpleColored.module.css"; // ✅ Correct Import
 import { NavLink } from "react-router-dom";
 
-export default function NavbarSimpleColoredMedic() {
+export default function NavbarSimpleColoredPatient() {
   const [active, setActive] = useState("Billing");
 
   const menuItems = [
     {
-      label: "Pacientes",
-      icon: <IconUserHeart className={styles.linkIcon} stroke={1.5} />,
-      link: "/pacientes",
+      label: "Especialistas",
+      icon: <IconStethoscope className={styles.linkIcon} stroke={1.5} />,
+      link: "/especialistas",
     },
     {
       label: "Consultas",

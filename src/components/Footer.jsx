@@ -10,10 +10,10 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-[#89c00f] text-white p-2 text-xl flex items-center justify-between">
-        <div className="uppercase font-bold text-5xl ml-24 mr-14 p-0 w-96">
+        <div className="uppercase font-bold text-5xl ml-24 mr-36 p-0 w-96">
           <Image src="/src/assets/LOGO BLANCO.png" />
         </div>
-        <div className="flex flex-col border-r-2 border-l-2 px-40 mr-40">
+        <div className="flex flex-col border-r-2 border-l-2 px-48">
           <h1 className="font-bold uppercase text-2xl">Contáctanos</h1>
           <div className="flex flex-row">
             <IconMail size={24} className="mt-1 mr-2" />
@@ -28,9 +28,9 @@ const Footer = () => {
             <span>+58 444-44-44</span>
           </div>
         </div>
-        <div className="mr-16">
-          <NavLink className="uppercase font-bold text-3xl cursor-pointer">
-            Manual de usuario
+        <div className="mx-10">
+          <NavLink className="uppercase font-bold text-xl cursor-pointer">
+            © 2025 MediDev. Todos los derechos Reservados.
           </NavLink>
         </div>
       </footer>

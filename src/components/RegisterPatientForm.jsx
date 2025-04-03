@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Button } from "@mantine/core";
-import { IconEye, IconEyeOff } from "@tabler/icons-react";
+import PropTypes from "prop-types";
+import { Button, UnstyledButton } from "@mantine/core";
+import { IconEye, IconEyeOff, IconChevronLeft } from "@tabler/icons-react";
+import { AuthController } from "../controllers/auth";
 
-const RegisterPatientForm = () => {
+const RegisterPatientForm = ({ onTypeSelect }) => {
+  const [, setUserType] = useState("");
   const [Sexo, setSexo] = useState("");
   const [birthday, setBirthday] = useState(null);
   const [name, setName] = useState("");
@@ -28,12 +31,29 @@ const RegisterPatientForm = () => {
       setIsConfirmPasswordVisible("password");
     }
   };
+  const handleGoBackButton = () => {
+    selectedUserType("");
+  };
+
+  const selectedUserType = (type) => {
+    onTypeSelect(type);
+    setUserType(type);
+  };
   return (
     <div className="rounded-lg p-4 h-screen flex items-center justify-center">
       <form className="flex flex-col bg-white w-[40%] h-fit items-center gap-3 rounded-xl shadow-2xl">
-        <h1 className="text-3xl text-center font-bold uppercase mt-12">
-          Registro de paciente
-        </h1>
+        <div className="flex flex-row w-full items-center justify-between text-center font-bold uppercase mt-12">
+          <UnstyledButton>
+            <IconChevronLeft
+              size={40}
+              className="ml-6 cursor-pointer"
+              color="#89c00f"
+              onClick={handleGoBackButton}
+            />
+          </UnstyledButton>
+          <h1 className="text-3xl">Registro de paciente</h1>
+          <div></div>
+        </div>
         <div className="flex items-center gap-1 flex-col mt-4 w-full">
           <h1 className="w-[60%]">Nombre</h1>
           <input
@@ -122,6 +142,7 @@ const RegisterPatientForm = () => {
         <Button
           color="#89c00f"
           className="bg-[#89c00f] text-xl text-white font-bold p-3 mb-4 rounded-lg border-2 border-[#89c00f] shadow-xl w-[30%] cursor-pointer hover:bg-white hover:text-black transition duration-300 mt-2"
+          onClick={AuthController.signUp}
         >
           Registrarse
         </Button>
@@ -129,4 +150,8 @@ const RegisterPatientForm = () => {
     </div>
   );
 };
+RegisterPatientForm.propTypes = {
+  onTypeSelect: PropTypes.func.isRequired,
+};
+
 export default RegisterPatientForm;

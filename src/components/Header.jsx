@@ -7,6 +7,44 @@ import { Autocomplete } from "@mantine/core";
 const Header = () => {
   const [isHoveredId, setIsHoveredId] = useState("");
   const navigate = useNavigate();
+  const Specialties = [
+    // Cirujanos
+    "Cirujano general",
+    "Cirujano maxilofacial",
+    "Cirujano oncólogo",
+    "Cirujano plástico",
+    "Cirujano pediatra",
+    "Cirujano torácico",
+    "Cirujano vascular",
+
+    // Médicos internistas
+    "Médico de medicina familiar",
+    "Médico especialista en adolescentes",
+    "Médico especialista en geriatría",
+    "Médico especialista en medicina interna",
+
+    // Pediatras
+    "Cardiólogo pediátrico",
+    "Intensivista pediátrico",
+    "Infectólogo pediatra",
+    "Neumonólogo pediatra",
+    "Otorrinolaringólogo pediatra",
+
+    // Psiquiatras
+    "Psiquiatra especialista en adicciones",
+
+    // Otros especialistas
+    "Alergólogo",
+    "Anestesiólogo",
+    "Dermatólogo",
+    "Endocrinólogo",
+    "Gastroenterólogo",
+    "Ginecólogo",
+    "Hematólogo",
+    "Hepatólogo",
+    "Neurólogo",
+    "Neurólogo cirujano",
+  ];
 
   const handleRegisterClick = () => {
     // Navigate to the RegisterPage and pass a unique value in the state
@@ -64,14 +102,7 @@ const Header = () => {
           <div className="border-white flex flex-row bg-white rounded-2xl p-2 w-96">
             <Autocomplete
               placeholder="Especialidad, Especialista o Medico..."
-              data={[
-                "Cardiologo",
-                "Endocrinología",
-                "Pediatría",
-                "Psiquiatría",
-                "Dermatología",
-                "Urología",
-              ]}
+              data={Specialties}
               className="custom-autocomplete text-[#89c00f] overflow-ellipsis w-full"
               styles={{
                 wrapper: {

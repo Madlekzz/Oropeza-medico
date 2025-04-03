@@ -23,8 +23,12 @@ const RegisterPage = () => {
   return (
     <div>
       {selectedUserType === "" && <UserType onTypeSelect={handleUserType} />}
-      {selectedUserType === "Medico" && <RegisterMedicForm />}
-      {selectedUserType === "Paciente" && <RegisterPatientForm />}
+      {selectedUserType === "Medico" && (
+        <RegisterMedicForm onTypeSelect={handleUserType} />
+      )}
+      {selectedUserType === "Paciente" && (
+        <RegisterPatientForm onTypeSelect={handleUserType} />
+      )}
     </div>
   );
 };

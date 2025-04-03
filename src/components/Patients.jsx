@@ -1,8 +1,9 @@
 // src/components/TestSupabase.jsx
 import { useEffect, useState } from "react";
 import { supabase } from "../config/supabaseclient";
+import { Table } from "@mantine/core";
 
-const TestSupabase = () => {
+const Patients = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -35,12 +36,21 @@ const TestSupabase = () => {
     return <div>Loading...</div>;
   }
   console.log(data);
+  const rows = data.map((element) => (
+    <Table.Tr key={element.id}>
+      <Table.Td>{element.nombre}</Table.Td>
+    </Table.Tr>
+  ));
   return (
-    <div>
-      <h1>Data from Supabase:</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+    <Table highlightOnHover className="shadow-lg rounded-l border-2">
+      <Table.Thead>
+        <Table.Tr>
+          <Table.Th>Paciente</Table.Th>
+        </Table.Tr>
+      </Table.Thead>
+      <Table.Tbody>{rows}</Table.Tbody>
+    </Table>
   );
 };
 
-export default TestSupabase;
+export default Patients;

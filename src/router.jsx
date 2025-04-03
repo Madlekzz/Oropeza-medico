@@ -8,6 +8,8 @@ import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { ProtectedLayout } from "./layouts/protectedLayout";
 import DashboardPage from "./pages/DashboardPage";
+import AppointmentsPage from "./pages/AppointmentsPage";
+import MedicsPage from "./pages/MedicsPage";
 
 export default function AppRouter() {
   return (
@@ -35,6 +37,8 @@ export default function AppRouter() {
           </Route>
           <Route element={<ProtectedLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/consultas" element={<AppointmentsPage />} />
+            <Route path="/especialistas" element={<MedicsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
