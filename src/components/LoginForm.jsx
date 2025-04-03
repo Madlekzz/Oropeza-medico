@@ -5,8 +5,8 @@ import { IconEye, IconEyeOff } from "@tabler/icons-react";
 import "../styles/style.css";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState("password");
   const [checkbox, setCheckbox] = useState(null);
 
