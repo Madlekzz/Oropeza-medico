@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../config/supabaseclient";
-import { Table, Checkbox, Loader, Pagination } from "@mantine/core";
+import { Table, Loader, Pagination } from "@mantine/core";
 import dayjs from "dayjs";
 import "dayjs/locale/es"; // Import Spanish locale
 
@@ -11,7 +11,6 @@ const formatDate = (isoString) => {
 const PatientDashboard = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [selectedRows, setSelectedRows] = useState([]);
   const [activePage, setPage] = useState(1);
 
   useEffect(() => {
@@ -47,24 +46,7 @@ const PatientDashboard = () => {
   }
   console.log(data);
   const rows = data.map((element) => (
-    <Table.Tr
-      key={element.id}
-      bg={selectedRows.includes(element.id) ? "#caf0b5 " : ""}
-    >
-      <Table.Td>
-        <Checkbox
-          color="lime"
-          aria-label="Select row"
-          checked={selectedRows.includes(element.id)}
-          onChange={(event) =>
-            setSelectedRows(
-              event.currentTarget.checked
-                ? [...selectedRows, element.id]
-                : selectedRows.filter((id) => id !== element.id)
-            )
-          }
-        />
-      </Table.Td>
+    <Table.Tr key={element.id}>
       <Table.Td>{element.Pacientes.nombre}</Table.Td>
       <Table.Td>{element.Medicos.nombre}</Table.Td>
       <Table.Td>{formatDate(element.fecha)}</Table.Td>
@@ -80,7 +62,6 @@ const PatientDashboard = () => {
           <Table highlightOnHover>
             <Table.Thead>
               <Table.Tr>
-                <Table.Th />
                 <Table.Th>Paciente</Table.Th>
                 <Table.Th>Médico Encargado</Table.Th>
                 <Table.Th>Fecha</Table.Th>
